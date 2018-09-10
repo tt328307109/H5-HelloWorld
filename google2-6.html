@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是结构标签</title>
+</head>
+<body>
+//div标签也被称为标签容器，把一组功能相关的标签放到div里面，并且统一的对里面设置对齐方式，颜色等
+<br>
+<br>
+常用于布局划分区域
+<br>
+<br>
+用于脚本的hook，钩子
+<br>
+<br>
+本身是没有任何语义的
+<br>
+<br>
+所以在h5中新增了section标签和article标签
+<br>
+<br>
+    <div style="color: red">
+        <p>则是一个段落</p>
+        <p>则是第二个段落</p>
+
+    </div>
+
+<br>
+<br>
+section标签不仅仅是一个标签容器，而且带有明显的语义，最好带有一个标题标签h1-h6，从而表达一个清晰的语义
+<br>
+<br>
+article标签是一种的section标签，它比section标签更具有明确的语义，无论从结构上，还是内容上，article标签代表一个独立的，完整的内容块
+<br>
+比如说一篇文章，论坛里的一个帖子。等等。
+<br>
+<article>
+    <header><h2>自我介绍</h2></header>
+    <p> 我是谷歌的小弟，坚持原创，热衷分享</p>
+    <section>
+        <h3>t推翻过往从学自定义view</h3>
+        <p>这是文章的介绍</p>
+    </section>
+
+    <section>
+        <h3>t推翻过往从学自定义animator</h3>
+        <p>这是文章的介绍</p>
+    </section>
+    <footer>博客的版权归谷歌的小弟所有 </footer>
+</article>
+
+<p>div , section , article标签语义从无到右，逐渐增强</p>
+<p>对于一般主题性内容可以采用section标签</p>
+<p>若该段内容可以脱离上下文，作为独立的一段内容存在，则采用article</p>
+<p>推荐使用section和article</p>
+</body>
+</html>
