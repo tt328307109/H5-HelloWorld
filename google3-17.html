@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是复合选择器</title>
+    <style type="text/css">
+        /*div,.classp,#idp{*/
+            /*font-size: 60px;*/
+            /*color: pink;*/
+        /*}*/
+
+        /*p.classtest1{*/
+            /*font-size: 30px;*/
+            /*color: pink;*/
+            /*background-color: maroon;*/
+        /*}*/
+
+        /*p#idtest1{*/
+            /*font-size: 35px;*/
+            /*color: aqua;*/
+            /*background-color: aliceblue;*/
+        /*}*/
+
+        /*div .myhoudai{*/
+            /*color: red;*/
+        /*}*/
+
+        /*div #myhoudaiid3{*/
+            /*color: blue;*/
+        /*}*/
+
+        /*div > .myhoudaix{*/
+            /*font-size: 55px;*/
+            /*color: chocolate;*/
+        /*}*/
+
+        /*div > #myhoudaiid3x{*/
+            /*font-size: 12px;*/
+            /*color: chartreuse;*/
+        /*}*/
+
+        #ttpp > .ttbb1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>标签、id、类、通配符选择器都是基本选择器</p>
+    <p>复合选择器就是--------------把 基本选择器进行组合使用---</p>
+
+    <p>首先看 并集选择器：并集选择器为不同的标签设置相同的css样式</p>
+    <p>并集选择器把各个选择器，通过“，”连接起来使用，构成一个并集选择器，看demo</p>
+
+    <p id="idp">这是一个p标签，id值为idp</p>
+    <p class="classp">这是一个p标签，class值为classp</p>
+    <div>这是一个div标签</div>
+
+
+    <h4>------------------------------下面是标签指定式选择器------------------------------</h4>
+    <p>标签指定式选择器：定义：为指定的标签设置css样式，同时满足，缺一 不可</p>
+    <p>通俗的解释，1.就是首先要指定标签名字2.再此基础上还需要指定id名，或class名，下面来一个demo</p>
+
+    <p id="idtest1">这是是标签指定式选择器demo1</p>
+    <p class="classtest1">这是是标签指定式选择器demo2</p>
+    <h4>------------------------------下面是后代选择器------------------------------</h4>
+    <p>后代选择器定义：为指定的标签设置css样式，嵌套</p>
+    <p>解释：标签是可以嵌套的，所以一个标签可能会有子元素，孙子元素</p>
+    <p>下面是后代选择器demo，只要在div标签后代里面 class名为myhoudai的都会被设置样式</p>
+    <h3>写法 div+空格+(.或者#)+对应的名字</h3>
+    <div>
+        <div>
+            <section>
+                <p class="myhoudai">hello 我的位置div div section p</p>
+            </section>
+        </div>
+        <p class="myhoudai">我的位置div p 第一个</p>
+        <p class="myhoudai">我的位置div p 第二个</p>
+        <p class="myhoudai2">我的位置div p 第三个</p>
+        <p id="myhoudaiid3">我的位置div p 第三个 后代选择器可以是id或class 这个不讲究</p>
+        <p id="myhoudaiid4">我的位置div p 第四个</p>
+    </div>
+
+    <h4>------------------------------下面是子选择器------------------------------</h4>
+    <p>子选择器定义：为指定标签设置css样式。子选择器用于为指定标签的第一代子元素设置样式</p>
+    <p>写法是selector1 > selector2 (跟后代选择器类似了，把空格变成大于符号，就行了)</p>
+    <p>下面是demo</p>
+
+    <div>
+        <div>
+            <section>
+                <p class="myhoudaix">hello 我的位置div div section p</p>
+            </section>
+        </div>
+        <p class="myhoudaix">我的位置div p 第一个</p>
+        <p class="myhoudaix">我的位置div p 第二个</p>
+        <p class="myhoudaix">我的位置div p 第三个</p>
+        <p id="myhoudaiid3x">我的位置div p 第三个 当然 这儿用id值也是可以的</p>
+        <p id="myhoudaiid4x">我的位置div p 第四个</p>
+    </div>
+
+    <h4>------------------------------下面是子选择器-用其他标签试试--(id值是不允许重复的，class值是可以重复的)------这个测试说明不实用于这种文本类标签-需div--------------------</h4>
+        <p id="ttpp">
+            <b class="ttbb1">我是b标签加粗的<i class="ttbb2">我是b里面的i标签，class名字也是ttbb1</i></b>
+            <br>
+            <i class="ttii1">我是i标签倾斜的</i>
+            <br>
+            <b class="ttbb1">我是b标签加粗的<i class="ttbb2">我是b里面的i标签，class名字也是ttbb1</i></b>
+        </p>
+
+</body>
+</html>
