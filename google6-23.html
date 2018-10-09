@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是定位position</title>
+
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .mystatic{
+            width: 520px;
+            height: 200px;
+            border: 1px solid red;
+            background-color: aqua;
+            position: static;
+            top: 50px;
+            right: 100px;
+        }
+        .myabsolute{
+            width: 520px;
+            height: 200px;
+            border: 1px solid green;
+            background-color: pink;
+            position: absolute;
+            top: 50px;
+            right: 100px;
+        }
+
+        .div1{
+            width: 520px;
+            height: 200px;
+            color: red;
+            border: 1px solid blue;
+            background-color: aqua;
+            position: relative;
+            top: 50px;
+            left: 50px;
+        }
+
+        .div2{
+            width: 520px;
+            height: 200px;
+            color: red;
+            border: 1px solid blue;
+            background-color: aqua;
+            position: relative;
+            top: 50px;
+            left: 50px;
+        }
+
+        img{
+            position: fixed;
+        }
+        .myfix{
+            width: 325px;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <p><b>position定位</b>主要用于定位元素出现的位置</p>
+
+    <p>css里面常用的定位方式</p>
+    <ul>
+        <li>static </li>
+        <li>absolute 绝对</li>
+        <li>relative 相对</li>
+        <li>fixed 固定</li>
+    </ul>
+    <p>postion使用语法</p>
+    <p>postion：relative|absolute|static|fixed；top|bottom|right|left：Mpx；</p>
+    <p>用于指定偏移量。</p>
+
+    <p>下面是static定位的例子</p>
+
+    <div class="mystatic">static定位的例子</div>
+    <p>上面为static设置了位置，却没有移动。原因是static是css中默认的定位类型，当你设置为static时，所有的left，right，top等都不会起作用。 </p>
+
+
+
+    <p>下面是absolute定位的例子</p>
+
+    <div class="myabsolute">absolute定位的例子</div>
+    <p>上面的absolute例子结果设置了position之后。div标签的位置，相对于浏览器的top 50px 相对于浏览器的right 100px.</p>
+    <p>如果元素发生了嵌套，那这个posiion定位的结果就不是相对于浏览器了。而是父元素（static除外。父元素使用static定位的话，子元素还是相对于浏览器定位的） </p>
+
+
+    <p>下面是realtive定位的例子</p>
+    <div class="div1">
+        <p>梦入神机</p>
+        <p>圣王</p>
+    </div>
+    <br/>
+    <div class="div2">
+        <p>辰东</p>
+        <p>完美世界</p>
+    </div>
+    <br/>    <br/>    <br/>    <br/>
+    <p>相对定位的定位规则：参照你原始的位置，进行偏移</p>
+
+
+    <p>下面是fixed定位的例子--测试失败。换到页面开头试试，6-23-2(成功了！)</p>
+    <img class="myimg" src="images/windows.png" width="325px" height="311px">
+    <p class="myfix">windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊windows是窗口啊</p>
+
+</body>
+
+</html>

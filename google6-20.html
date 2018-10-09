@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>还是盒子模型</title>
+    <style type="text/css">
+        .box{
+            width: 500px;
+            height: 200px;
+            background-color: red;
+            margin: 0 auto;//水平居中方法
+        }
+
+        em{
+            font-size: 45px;
+            color: #ff230d;
+            background-color: aqua;
+        }
+        img{
+            vertical-align: middle;//这是图片和它文字的竖直方向居中的方法
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div >
+        <img src="images/windows.png">
+        <em>这是windows啊老哥</em>
+        
+    </div>
+</body>
+</html>

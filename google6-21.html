@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是display</title>
+    <style type="text/css">
+        a{
+            display: block;
+            width: 200px;
+            height: 100px;
+            background-color: aqua;
+        }
+        .changgetoinlineblock{
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+            background-color: chartreuse;
+        }
+        div{
+            display: inline;
+            font-size: 30px;
+            color: red;
+            background-color: pink;
+            margin-left: 15px;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <p>h5里面根据标签显示方式的不同分为以下3种标签</p>
+    <ul>
+        <li>块级标签block</li>
+        <li>行内标签inline</li>
+        <li>行内块标签inline-block</li>
+    </ul>
+
+    <p style="font-size: 48px">首先看一下块级标签 block</p>
+    <em style="color: #ff230d"> 块级标签独占一行显示</em><br/>
+    <em style="color: #ff230d"> 块级标签的高度，宽度，行高，以及距顶和底部的位置都可以设置。如P标签 div标签</em>
+
+    <p style="font-size: 48px">行内标签 inline</p>
+    <em style="color: #ff230d"> 行内标签不独占一行显示，会和其他标签显示在同一行</em><br/>
+    <em style="color: #ff230d"> 不能直接设置行内标签的高度，宽度，行高，以及顶和底边距。比如 span标签，a标签</em>
+
+    <p style="font-size: 48px">行内块标签 inline-block</p>
+    <em style="color: #ff230d"> 行内块标签在同一行显示</em><br/>
+    <em style="color: #ff230d"> 可以设置行内块标签的高度，宽度。比如img标签，input标签</em>
+
+    <p>在工作中经常会用到以上3种标签的相互转换，这个转换就是靠display来实现的</p>
+
+    <p style="font-size: 48px">display</p>
+    <em>块级标签，行内标签，行内块级标签之间相互转换</em>
+    <p>下面是例子，a标签转换成块级标签，那么点击那一块地方都会进行跳转、去掉display一行效果就不见了</p>
+    <a href="https://blog.csdn.net/yang_niuxxx" target="_blank">这是阳神的博客</a>
+
+    <p>下面一个例子讲行内标签转换成行内块标签</p>
+    <a class="changgetoinlineblock" href="https://blog.csdn.net/yang_niuxxx" target="_blank">这是阳神的博客</a>
+    <a class="changgetoinlineblock" href="https://blog.csdn.net/yang_niuxxx" target="_blank">这是阳神</a>
+    <p>上面的例子，两个a标签从行内标签转换成了行内块标签，所以都在同一 行，同时可以为它设置宽高了</p>
+    <p>下面一个例子将块级标签转换成为行内标签</p>
+    <div> 阳神你好</div>
+    <div> 阳神你好帅</div>
+    <p>通过上面的转换后，两个div标签显示在了同一行(再设置宽和高就不会起作用了如我设置的300px)</p>
+</body>
+</html>

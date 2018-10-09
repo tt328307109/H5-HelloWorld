@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是伪元素</title>
+    <style type="text/css">
+        p:first-letter{
+            color: chartreuse;
+            font-size: 50px;
+        }
+        h1:first-letter{
+            color: #ff230d;
+        }
+
+        p:first-line{
+            color: aqua;
+        }
+
+        a:before{
+            content: url("images/windows.png");
+        }
+
+        a:after{
+            content: url("images/windows.png");
+        }
+    </style>
+</head>
+<body>
+<h1>试试其他的标签</h1>
+<p> 谷歌的小弟</p>
+<p> 谷歌的二弟</p>
+<p> 谷歌的san弟谷歌的san弟谷歌的san弟谷歌的san弟谷歌的san弟<br>谷歌的san弟谷歌的san弟</p>
+
+<a href="http://www.baidu.com" target="_blank">百度网址</a>
+</body>
+</html>
