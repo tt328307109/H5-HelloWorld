@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是js基本数据类型</title>
+</head>
+<body>
+    <p>大致是以下几种</p>
+    <ol>
+        <li>number</li>
+        <li>string</li>
+        <li>boolean</li>
+        <li>undefind</li>
+        <li>null</li>
+    </ol>
+
+    <script type="text/javascript">
+        var number = 9527;
+        document.writeln(typeof(number) );
+
+        var number2;
+        document.writeln(number2)//number2没有定义，所以输出是undefined
+        document.writeln(typeof(number2) );//没有定义，即为undefined类型
+    </script>
+    <p>上面的例子主要讲typeof的运用，以及。变量为空值时候的输出(并不知道他是什么类型)</p>
+
+    <script type="text/javascript">
+        var str1 = "小姐姐";
+        var str2 = "小姐姐";
+        document.writeln(typeof(number) );
+        document.writeln(typeof(str1) );
+    </script>
+    <p>上面例子主要讲typeof以及，可以识别上一个js中定义的数字</p>
+
+    <script type="text/javascript">
+        var sex1 = null;
+        document.writeln(typeof(sex1) );
+        sex1 = "男";
+        document.writeln(typeof(sex1) );
+        sex1 = 101;
+        document.writeln(typeof(sex1) );
+    </script>
+    <p>上面例子主要讲null主要是针对对象为空的时候，当他被赋值后就成了其他的类型</p>
+</body>
+</html>

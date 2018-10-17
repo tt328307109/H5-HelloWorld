@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript变量的提升</title>
+</head>
+<body>
+<p>意思就是变量的 <b><font color="red">声明</font></b>总是会被提升到函数体的顶部</p>
+
+<p>如下。下面2个js的写法意思是一样的</p>
+
+<script type="text/javascript">
+    var name = "阿毛";
+    function test01() {
+        document.writeln(name + "" + "<br>");
+        var name = "阿马";
+        document.writeln(name+ "" + "<br>");
+    }
+    test01();
+</script>
+
+<script type="text/javascript">
+    var name = "阿毛";
+    var age = "16";
+    function test02() {
+        var name;
+        document.writeln(name + "" + "<br>");
+        document.writeln(age + "" + "<br>");
+        name = "阿马";
+        document.writeln(name+ "" + "<br>");
+    }
+    test01()
+    test02()
+</script>
+
+<p>test01之所以会输出undefined，是因为它并没有用到全局的，而是把16行的，name的赋值，拆解成了test02中的写法。所以就为空</p>
+<p>第二个js中的age表明还是可以用外部的变量的</p>
+<p>js中所有变量的声明均是var xxx 与java中差别较大。 方法都是function XXXX(){}</p>
+<p>且，js的写法最好加上分号;;;;;;</p>
+</body>
+</html>
