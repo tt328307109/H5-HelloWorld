@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是数组</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var arr=[1,"hello",true,9527];
+    var len=arr.length;
+    document.write("len="+len+",arr[1]="+arr[1]+",arr[2]="+arr[2]);
+
+    for (var i = 0; i < arr.length; i++) {
+        document.writeln(arr[i] + "<br>")
+    }
+</script>
+
+<script type="text/javascript">
+    var arr1=["谷哥的小弟","18岁",9527];
+    var arr2=["有心课堂","棒棒的",3.14];
+    var arr3=arr1.concat(arr2);
+    for(var i=0;i<arr3.length;i++){
+        document.write("arr3["+i+"]="+arr3[i]+"<br>");
+    }
+</script>
+<p>数组的合并使用concat函数，把2粘贴到1末尾</p>
+
+<script type="text/javascript">
+    var arr=["苍空空","兰姐姐","大泽玛"];
+    var str=arr.join("!");
+    document.write(str);
+    document.writeln(arr)
+</script>
+<p>利用array.join(separator)将字符串中的元素组成一个字符串</p>
+
+<script type="text/javascript">
+    var arr = [9, 5, 2, 7];
+    arr.sort(function(a, b) { return a - b });
+    document.writeln(arr)
+</script>
+<p>==[9, 5, 2, 7]的排序结果为:2,5,7,9==</p>
+<p>测试push和pop</p>
+<script type="text/javascript">
+    var number=[9,5,2,7];
+    number.push(1);
+    document.writeln(number+"<br>");
+    number.pop();
+    document.writeln(number+"<br>");
+</script>
+<p>push和pop都是针对的数组最后一位而言的</p>
+</body>
+</html>

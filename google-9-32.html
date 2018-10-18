@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+</head>
+<body>
+<p>js中几乎所有东西都是对象：比如说</p>
+<ul>
+    <li>字符串</li>
+    <li>数字</li>
+    <li>数组</li>
+    <li>日期</li>
+    <li>函数本身</li>
+</ul>
+<h2>首先来看 内置对象比如说</h2>
+<p>Date</p>
+<p>Math</p>
+<p>String</p>
+
+<p>max示例</p>
+<script type="text/javascript">
+    var number = Math.max(9999, 6666);
+    document.writeln("the max is " + number);
+</script>
+<h2>自定义对象</h2>
+<p>自定义对象的创建方式主要有3中 new调用构造函数的方式、object、JSON</p>
+
+<h3>new的方式例子</h3>
+<script type="text/javascript">
+    function star(name, country) {
+        this.name = name;
+        this.country = country;
+        this.print = function () {
+            document.writeln("名字：" + name + "国家" + country);
+        }
+    }
+
+    var star1 = new star("范冰冰", "中国");
+    var star2 = new star("li冰冰", "中国");
+    star1.print();
+    star2.print();
+</script>
+
+<h3>object方式（js中所有的对象都是object的子类，所以可以直接用object来创建自定义对象）</h3>
+<script type="text/javascript">
+    var st = new Object();
+    st.name = "刘德华";
+    st.sex = "男的"
+    st.pr = function () {
+        document.writeln("名字" + this.name + "性别" + this.sex + "<br>");//this不可少
+    }
+    st.pr();
+</script>
+
+<h3>JSON方式，用json来定义对象</h3>
+
+<script type="text/javascript">
+    sttt = {
+        nnnn: "范水水",
+        cccc: "china",
+        pritttt: function(){
+            document.writeln(this.nnnn + "" + this.cccc);
+        }
+    }
+    sttt.pritttt();
+
+</script>
+
+    <a href="https://blog.csdn.net/lfdfhl/article/details/78463850"> 原文链接</a>
+</body>
+</html>

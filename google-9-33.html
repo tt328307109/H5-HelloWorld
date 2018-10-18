@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例属性和类属性</title>
+</head>
+<body>
+
+    <h3>在JavaScript的类中：将以this修饰的变量称为实例属性，实例属性属于单个对象，可通过对象.属性的方式访问实例属性。<br>
+
+        在JavaScript的类中：将以函数名修饰的变量称为类属性，类属性属于类本身，可通过类名.属性的方式访问类属性。</h3>
+<script type="text/javascript">
+    function Student(id,name){
+        this.id=id;
+        this.name=name;
+        Student.national="China";
+        this.print=function(){
+            document.writeln("id="+id+",name="+name);
+        }
+    }
+    var s=new Student(9527,"zxx");
+    document.writeln("id="+s.id+",name="+s.name+",national=" + Student.national);
+</script>
+    <p>在js中一个函数可以代表一个类，我们可以通过new函数名的方式来创建一个对象</p>
+</body>
+</html>

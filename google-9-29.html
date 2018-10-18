@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是运算符</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var num1=9527;
+    var num2=9528;
+    var result=num1>num2;
+    document.write("比较结果为："+result);
+</script>
+<br>
+<script type="text/javascript">
+    var str1="小姐姐";
+    var str2="小姐姐";
+    var result1=str1==str2;
+    var result2=str1===str2;
+    document.write("比较结果为："+result1);
+    document.write("比较结果为："+result2);
+</script>
+<p><b>上面2个分别是数字比较和字符比较的运用</b></p>
+<p>-------------------------------------------------------------------------------------------</p>
+<script type="text/javascript">
+    var num1=9527;
+    var num2="9527";
+    var num3=9527;
+    document.write("num1="+num1+",数据类型是"+typeof(num1)+"<br>");
+    document.write("num2="+num2+",数据类型是"+typeof(num2)+"<br>");
+    document.write("num3="+num3+",数据类型是"+typeof(num3)+"<br>");
+    var result1=(num1==num2);
+    document.write("比较的结果result1="+result1+"<br>");
+    var result2=(num1===num3);
+    document.write("比较的结果result2="+result2+"<br>");
+    var result3=(num1===num2);
+    document.write("比较的结果result3="+result3+"<br>");
+</script>
+<p>上面的例子，表明2个=号，判断全等不一定准确。num1和num2也可能返回true。3个=号比较保险，不但比较内容，还比较类型</p>
+<p>-------------------------------------------------------------------------------------------</p>
+<script type="text/javascript">
+    var num1=9527;
+    var num2="9527";
+    document.write("num1="+num1+",数据类型是"+typeof(num1)+"<br>");
+    document.write("num2="+num2+",数据类型是"+typeof(num2)+"<br>");
+    var result=(num1!=num2);
+    document.write("比较的结果result="+result+"<br>");
+</script>
+<p>注意啊！该运算符只判断两个变量的内容是否不相同而与两个变量的数据类型无关！所以，字符串9527和数字的9527是==的。应返回false</p>
+
+<script type="text/javascript">
+    var num1=9527;
+    var num2="9527";
+    var num3="1234";
+    var num4=9527;
+    document.write("num1="+num1+",数据类型是"+typeof(num1)+"<br>");
+    document.write("num2="+num2+",数据类型是"+typeof(num2)+"<br>");
+    document.write("num3="+num3+",数据类型是"+typeof(num3)+"<br>");
+    document.write("num4="+num4+",数据类型是"+typeof(num4)+"<br>");
+    var result1=(num1!==num2);
+    document.write("比较的结果result1="+result1+"<br>");
+    var result2=(num1!==num3);
+    document.write("比较的结果result2="+result2+"<br>");
+    var result3=(num2!==num3);
+    document.write("比较的结果result3="+result3+"<br>");
+    var result4=(num1!==num4);
+    document.write("比较的结果result4="+result4+"<br>");
+</script>
+    <p>注意，这里的！==既要比较内容，也要比较类型。所以上面的结果应该是 tttf</p>
+
+<!--<p>-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;下面是三目运算符&#45;&#45;以及prompt运用-&#45;&#45;&#45;&#45;与java一致-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+<!--<script type="text/javascript">-->
+    <!--var number=prompt("请问你有几个女朋友?");-->
+    <!--number=parseInt(number);-->
+    <!--number>0?alert("不错喔"):alert("单身狗，不哭");-->
+<!--</script>-->
+
+<script type="text/javascript">
+    var sttr="9527";
+    var type=typeof sttr;
+    document.writeln("type="+type);
+
+
+    var sttr=95274;
+    var type=typeof sttr;
+    document.writeln("type="+type);
+
+    var sttr=null;
+    var type=typeof sttr;
+    document.writeln("type="+type);
+</script>
+<p>typeof不但可以当做运算符使用还可以当做函数使用，所以写成typeof(number)亦是可以的。</p>
+
+<script type="text/javascript">
+    var number=[9,5,2,7];
+    var result=(number instanceof Array);
+    document.writeln("result="+result);
+</script>
+</body>
+</html>

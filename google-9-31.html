@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+    <p>函数本身是一个function实例，而且函数代表一个类，它可以当做一个类来使用。</p>
+    <p>下面介绍定义函数的两种方式</p>
+
+    <p>js是弱类型的语言，所以在定义函数的时候，不需要指定返回值类型，也不需要指定参数的类型</p>
+    <p>1.函数声明式(标准的方式)下面例子</p>
+    <script type="text/javascript">
+        function pritln(message) {
+            document.writeln(message + "<br>")
+            var reslt = "方法执行完了"
+            return reslt;
+        }
+        var res = pritln("我是参数哦")
+        document.writeln(res + "<br>")
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>2.匿名函数式</p>
+    <script type="text/javascript">
+        var prt = function(message) {
+            document.writeln(message + "<br>")
+            return reslt = "匿名函数方法执行完了";
+        }
+        var res2 = prt("我是匿名函数的参数哦")
+        document.writeln(res2 + "<br>")
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>2.1匿名函数式的另一种方式</p>
+    <script type="text/javascript">
+        var printMessage=new Function("message","document.writeln(message+'<br>');");
+        printMessage("hello Function");
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>函数的提升，与变量的提升是类似的，定义的函数，会被提升到script标签的最上方(变量是提升到函数里面的最上方)</p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>错误的函数提升例子<b>匿名函数不会提升</b>--->所以，此时需将函数的调用置于匿名函数的声明之后</p>
+    <script type="text/javascript">
+        printMessage2("hello javascript");
+        var printMessage2 = function(message) {
+            document.writeln(message);
+        }
+    </script>
+
+</body>
+</html>

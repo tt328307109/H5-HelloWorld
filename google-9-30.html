@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>流程控制语句</title>
+</head>
+<body>
+<a href="https://blog.csdn.net/lfdfhl/article/details/78463833" target="_blank">基本与java完全一样，详细请看博客</a>
+<script type="text/javascript">
+    try {
+        for (var i = 0; i < 5; i++) {
+            document.writeln(i + "<br>");
+            if (i == 3) {
+                throw new Error("错误信息i=3");
+            }
+        }
+    } catch (e) {
+        document.writeln(e.message + "<br>");
+    } finally {
+        document.writeln("请您稍后重试");
+    }
+</script>
+<p>注意的点
+    <br>
+    JavaScript异常捕获机制小结：  <br>
+
+    JavaScript中通过throw抛出异常  <br>
+
+    JavaScript中异常全部是Error对象；所以，try块后只能存在一个catch块  <br>
+
+    JavaScript是弱类型语言；所以，catch语句后的括号里的异常示例无须声明类型----><b>e没有类型的哦</b></p>
+</body>
+</html>
