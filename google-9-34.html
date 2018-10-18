@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是function</title>
+</head>
+<body>
+    <h3>函数本身也是一个function实例，验证一下</h3>
+
+    <script type="text/javascript">
+        var add=function (a,b){
+            for (var i = 0;i < arguments.length; i++){
+                document.writeln(arguments[i] + "<br>");
+            }
+            var c=a+b;
+            document.writeln(a+"+"+b+"="+c+"<br>");
+        }
+        add(9526,1);
+        document.writeln("参数个数" + add.length);
+        var result=add instanceof Function;
+        document.writeln("函数是否是Function类的实例? ----> "+result+"<br>");
+    </script>
+    <h3>下面是prototype属性</h3>
+    <script type="text/javascript">
+        function Dog(name,color){
+            this.name=name;
+            this.color=color;
+            this.type="犬科";
+            this.eat=function(){
+                document.writeln("Dog eat bone"+"<br>");
+            }
+        }
+        var xiaobai=new Dog("小白","白色");
+        xiaobai.eat();
+        var xiaohei=new Dog("小黑","黑色");
+        xiaohei.eat();
+    </script>
+
+<p>采用该方式来创建对象，可以是可以；但是带来一个弊端：代码的冗余和内存的浪费。比如，在该示例中每生成一个实例，都会重复生成type属性和eat( )方法从而浪费了内存。</p>
+<p>也就是说：我们可把那些不变的属性和方法直接定义在prototype对象上。现在就利用prototype修改刚才的示例</p>
+    <script type="text/javascript">
+        function Dog(name, color) {
+            this.name2 = name;
+            this.color2 = color;
+        }
+        Dog.prototype.type = "犬科";
+        Dog.prototype.eat = function() {
+            document.writeln("Dog eat bone" + "<br>");
+        }
+        var xiaobai2 = new Dog("小白", "白色");
+        xiaobai2.eat();
+        var xiaohei2 = new Dog("小黑", "黑色");
+        xiaohei2.eat();
+    </script>
+<p>在此从结构和效率的角度优化代码，将type属性和eat( )方法定义在了prototype中。</p>
+
+<h3>call和apply的用法</h3>
+    <script type="text/javascript">
+        var name3="小明";
+        var boy3={name3:"大雄"};
+        function introduce(message3){
+            document.writeln(message3+"，我的名字是"+this.name3+"<br>");//谁调用的这个方法，this就指向谁
+        }
+        introduce("hello");
+        introduce.call(this,"hello");//这里的this指的是window。这里写法等于 window.introduce("hello");
+        introduce.call(boy3,"大家好");
+    </script>
+
+<h4>call,和apply的作用是切换程序运行的上下文环境</h4>
+
+
+    <script type="text/javascript">
+        var name4="小泽";
+        function print(){
+            document.writeln(this.name4);//那么，在print( )方法中document.writeln(this.name);这里的this当然指向了window，所以this.name表示了window的name
+        }
+        print();//嗯哼，请问是谁调用了函数print( )？？？是window！！！所以，你写成window.print( )也是完全没有错误的
+    </script>
+</body>
+</html>
