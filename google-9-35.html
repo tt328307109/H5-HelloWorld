@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是函数类对象的小结</title>
+</head>
+<body>
+
+    <h3>在js里，定义函数的同时，会得到一个与他名字相同的类</h3>
+
+    <script type="text/javascript">
+        function Student(id , name) {
+            this.id = id;
+            this.name = name;
+            this.print = function () {
+                document.writeln("name=" + name + "id=" + id);
+            }
+        }
+        var s = new Student(9527,"zxx");
+        s.print();
+    </script>
+    <h3>比如在上面的例子中，定义了Student函数，同时它也代表一个类。所以我们通过new Student可以创造一个实例</h3>
+    <h3>简单的说在js里面 函数名也就是类名。函数本身就是类的构造函数，所以我们可以new 关键字来创造一个实例对象</h3>
+    <h3>其次我们需要知道函数本身也是Funcation的实例</h3>
+</body>
+</html>
