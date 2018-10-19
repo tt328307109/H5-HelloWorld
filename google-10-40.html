@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是事件处理机制</title>
+</head>
+<body>
+<h2>在软件开发领域，几乎所有的GUI编程都会涉及到事件机制</h2>
+<p>比如我们在Android中非常熟悉的单击，触摸，滑动，双击，长按等等都属于事件的范畴。今天我们就来学习JavaScript中事件处理机制。</p>
+<h3>下面介绍js中事件的模型</h3>
+<p>1.事件类型(event type) 例如：“click”表示单击事件；”load”表示页面或者图片加载完成的事件</p>
+<p>2.事件目标(event target) 表示事件的触发对象。例如：点击button发出一个click事件，此时button就是事件目标也叫事件源</p>
+<p>3.事件(event) 简单来说事件类型+事件目标就是事件(例如页面中的红色button触发了click事件)</p>
+<p>4.事件监听器(event listener)也叫事件处理器，用于处理或响应事件的js函数</p>
+
+<p><b>在此，列举几个JavaScript常用的事件</b><br>
+
+    onclick 表示单击事件<br>
+    onchange 表示域内容发生变化<br>
+    onload 表示页面或图像被加载完成<br>
+    onmousemove 表示鼠标移动<br>
+    onmouseover 表示鼠标移到元素之上<br>
+    onfocus 表示元素获得焦点<br>
+    onselect 表示文本被选定<br>
+</p>
+<h3>下面介绍几种绑定事件处理函数的方式</h3>
+<h4>1.利用标签属性绑定事件处理函数，下例(通过button的属性值绑定的事件处理函数)</h4>
+<button id="button" onclick="buttonClick()">Please click me</button>
+<script type="text/javascript">
+    function buttonClick(){
+        alert("You click the button");
+    }
+</script>
+
+<h4>2.js代码中绑定事件处理函数，下例(也很简单在js代码中为button绑定处理函数)</h4>
+<button id="button2">Please click me</button>
+<script type="text/javascript">
+    var b=document.getElementById("button2");
+    b.onclick=function(){
+        alert("You click the button");
+    };
+</script>
+
+<h4>3.采用addEventListener绑定事件处理函数，下例</h4>
+<p>方法名字：elementObject.addEventListener(eventName,handle,useCapture);</p>
+<ol>
+    <li>参数1，事件名称。例如单击事件传入“click”即可</li>
+    <li>参数2，表示事件处理函数</li>
+    <li>参数3，boolean值，表示监听事件传播的哪个阶段。false表示冒泡阶段，true表示捕获阶段</li>
+    <li>参数3说明:冒泡和捕获，对应android的传递和消费。一般填false。再一些老的浏览器中不支持为true的处理</li>
+</ol>
+
+<button id="button3">Please click me</button>
+<script type="text/javascript">
+    var buttonClick=function(){
+        alert("You click the button");
+    }
+    var b3=document.getElementById("button3");
+    b3.addEventListener("click",buttonClick,false);
+</script>
+<p>在上面的例子中通过addEventListener绑定了事件处理函数<br>
+    也可在需要的时候利用JavaScript提供的removeEventListener( )解除事件处理函数的绑定</p>
+<p>上例中监听的是冒泡阶段，其实一般情况传入false即可。因为在老的浏览器不支持对捕获阶段的监听。那么以前是怎么做的呢。看下面</p>
+
+<p>elementObject.attachEvent(eventName,handle);<br>
+    elementObject.detachEvent(eventName,handle);</p>
+<p>从这里也可以看出来，这一对方法只有两输入参数，压根就没有第三个boolean类型的参数！</p>
+<h3>再来记一遍<br>参数3-useCapture：如果设为false，表示不监听捕获阶段，监听冒泡阶段<br>
+    参数3-useCapture：如果设为true，表示不监听冒泡阶段，监听捕获阶段</h3>
+</body>
+</html>
