@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是继承</title>
+</head>
+<body>
+    <h3>虽然js也是面向对象的，但是并没有严格的父类和子类的概念</h3>
+    <h3>也不可以像java里面通过extends关键字来实现继承，只能通过别的方式来扩展原有的类。或者说通过别的方式来实现继承。下面介绍几种方式</h3>
+    <h4>1.利用构造函数来实现继承。</h4>
+    <h4>2.利用prototype来实现继承。</h4>
+    <h4>3.利用class来实现继承。js6里面，方便（目前支持的少）</h4>
+
+    <h5>下面是方式1</h5>
+    <!--<script type="text/javascript">-->
+        <!--function Person(){-->
+            <!--this.species="human";-->
+            <!--this.meal=function(){-->
+                <!--document.writeln("Person meal <br>");-->
+            <!--}-->
+        <!--}-->
+
+        <!--function Student(name,age){-->
+            <!--Person.apply(this,arguments);-->
+            <!--this.name=name;-->
+            <!--this.age=age;-->
+            <!--this.study=function(){-->
+                <!--document.writeln("Student study <br>");-->
+            <!--}-->
+        <!--}-->
+
+        <!--var student=new Student("韩梅梅",14);-->
+        <!--document.writeln("student species="+student.species+"<br>");-->
+        <!--document.writeln("student name="+student.name+"<br>");-->
+        <!--document.writeln("student age="+student.age+"<br>");-->
+        <!--student.meal();-->
+        <!--student.study();-->
+    <!--</script>-->
+    <p>在上面的例子中，Student通过24行  Person.apply(this,arguments);成功的把Person类里面的字段和方法切换到自己的类(上下文环境)了。</p>
+    <p>就相当于Student扩展了1个字段1个方法。这就实现了继承</p>
+
+    <h5>下面是方式2</h5>
+
+    <!--<script type="text/javascript">-->
+        <!--function Person2(){-->
+
+        <!--}-->
+
+        <!--Person2.prototype.species="human";-->
+        <!--Person2.prototype.meal=function(){-->
+            <!--document.writeln("Person meal <br>");-->
+        <!--}-->
+
+        <!--function Student2(name,age){-->
+            <!--this.name=name;-->
+            <!--this.age=age;-->
+            <!--this.study=function(){-->
+                <!--document.writeln("Student study <br>");-->
+            <!--}-->
+        <!--}-->
+
+        <!--Student2.prototype=Person2.prototype;-->
+        <!--Student2.prototype.constructor=Student2;-->
+
+        <!--var student2=new Student2("韩梅梅",14);-->
+        <!--document.writeln("student species="+student2.species+"<br>");-->
+        <!--document.writeln("student name="+student2.name+"<br>");-->
+        <!--document.writeln("student age="+student2.age+"<br>");-->
+        <!--student2.meal();-->
+        <!--student2.study();-->
+    <!--</script>-->
+    <p>上面的例子中。核心就是将Person2的prototype赋给Student2，这样Student2的原型就跟Person2一模一样了</p>
+    <p>这样，Studen2的构造函数，字段，方法都等于Person2了。由于构造函数变了，所以要改回来63行。这样也变向的继承了。但是！这么做Student2和Person2的耦合性更高了，只要懂了Student2的原型，Person也会动到</p>
+    <h3>Student.prototype和Person.prototype指向了同一个对象，那么任何对Student.prototype的修改，都会反映到Person.prototype。所以，在此可以利用一个空对象作为中介，避免两者发生直接的”继承”。请看如下示例：</h3>
+    <script type="text/javascript">
+        function Person(){
+
+        }
+
+        Person.prototype.species="human";
+        Person.prototype.meal=function(){
+            document.writeln("Person meal <br>");
+        }
+
+        function Student(name,age){
+            this.name=name;
+            this.age=age;
+            this.study=function(){
+                document.writeln("Student study <br>");
+            }
+        }
+
+        var nullFunction = function(){};
+        nullFunction.prototype = Person.prototype;
+        Student.prototype = new nullFunction();
+        Student.prototype.constructor = Student;
+
+        var student=new Student("韩梅梅",14);
+        document.writeln("student species="+student.species+"<br>");
+        document.writeln("student name="+student.name+"<br>");
+        document.writeln("student age="+student.age+"<br>");
+        student.meal();
+        student.study();
+    </script>
+    <p>增加了1个空对象nullFunction，于是有了下面的步骤</p>
+    <ul>
+        <li>94行把Student的原型赋给nullFunction(此时nullFunction的prototype指向的Person的prototype)</li>
+        <li>95行new一个新的nullFuncton对象给Student的prototype(由于nullFunction本身是没有任何东西的，所以这一步就等于把nullFunction的prototype赋给Student的prototype)</li>
+        <li>96行再把构造器改回来</li>
+        <li>这样Student和person就实现了解耦</li>
+    </ul>
+
+<h3>在ES6中可以利用Class通过extends关键字实现继承，这比之前的通过修改原型链实现继承的方式要方便得多了。尤其是做Java，Android开发的童鞋看到Class时倍感亲切，<br>
+    但是稍微遗憾的是目前不少浏览器(包括我目前使用的谷歌浏览器)对于ES6的Class兼容得不是很好。<br>
+    不过，也不用担心，我相信过不了多久主流的浏览器都会很好地支持Class。</h3>
+</body>
+</html>

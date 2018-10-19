@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是window</title>
+</head>
+<body>
+    <p>前面讲的是js的语法基础，今后是讲js客户端的学习</p>
+    <p>今天讲window</p>
+    <h3>在js客户端领域，它存在一个顶层对象window。表示浏览器里面打开的窗口。</h3>
+    <h3>下面看js里面跟window有关的重要的属性和方法</h3>
+    <img src="images/ditail1.jpg">
+
+    <p>Window中常见的方法有：<br>
+
+        alert( ) ：弹出对话框<br>
+
+        close( )：关闭窗口<br>
+
+        print( )：打印当前窗口的内容<br>
+
+        prompt( )：显示提醒用户输入的对话框</p>
+
+<p>window中常见的属性有：<br>
+
+    history：表示对History对象的引用；该对象封装了浏览器的浏览历史记录<br>
+
+    navigator：表示对Navigator对象的引用；该对象包含有关浏览器的信息，比如：浏览器的版本、语言、名称、平台等等。<br>
+
+    screen：表示对Screen对象的引用；该对象包含显示屏幕的信息，比如：屏幕的宽、屏幕的高、刷新率等等。<br>
+
+    document：表示对Document对象的引用；该对象表示HTML文档对象，它包含：标题、cookie、域名等等信息；而且可通过该对象对DOM进行操作。</p>
+
+    <script type="text/javascript">
+        var school = "北科大";
+
+        function Student(id, name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        function printStudentMessage(s) {
+            document.writeln("id=" + s.id + ",name=" + s.name);
+        }
+
+        var stu = new Student(9527, "周星星");
+        printStudentMessage(stu);
+        alert(school);
+
+        // window.printStudentMessage(stu);
+        // window.alert(window.school);
+    </script>
+    <h4 style="color: red"> 上面2种写法是完全一样的，scipt里面的属性是window的。script里调的方法实际上是window调的</h4>
+</body>
+</html>

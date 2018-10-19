@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这次是鸭式辨型</title>
+</head>
+<body>
+    <h3>在讨论函数，对象，类的时候我们多次提到：JavaScript是弱类型的语言</h3>
+    <h3>JavaScript这种与生俱来的特性在给开发人员带来极大便利的同时也不可避免地产生了些许副作用。</h3>
+    <h3>比如，有时候我们在困惑：函数传入的参数是否是需要的类型呢？</h3>
+
+    <p>请看如下示例：</p>
+
+    <!--<script type="text/javascript">-->
+        <!--function Student(id,name){-->
+            <!--this.id=id;-->
+            <!--this.name=name;-->
+        <!--}-->
+
+        <!--function printStudentMessage(s){-->
+            <!--document.writeln("id="+s.id+",name="+s.name);-->
+        <!--}-->
+        <!--var stu=new Student(9527,"周星星");-->
+        <!--// printStudentMessage(123);-->
+        <!--printStudentMessage(stu);-->
+    <!--</script>-->
+<p>在此处，我们本想在printStudentMessage函数中打印Student类型的对象的信息。<br>但是由于JavaScript是弱语言，所以不能确保传递给printStudentMessage( )方法的参数必是Student类型的。</p>
+<p>比如在上面的例子，我们如果传入123.虽然程序不会报错。但是输出的结果是不对的。为了避免这种情况，我们需要在printStudentMessage中对传入参数进行判断</p>
+<p>为了程序的严谨和避免不必要的麻烦，我们可对传入的参数进行辨识，请看如下示例：</p>
+    <script type="text/javascript">
+        function Student(id,name){
+            this.id=id;
+            this.name=name;
+        }
+
+        function printStudentMessage(s){
+            if(typeof s=="object" && typeof s.id=="number"){
+                document.writeln("id="+s.id+",name="+s.name);
+            }else{
+                document.writeln("传入参数不是Student");
+            }
+
+        }
+        var stu=new Student(9527,"周星星");
+        printStudentMessage(stu);
+    </script>
+    <h3>该示例中，在printStudentMessage( )<b>方法的起始处判断输入参数是否是所需要的Student类型</b>，请参见代码第37行。这种做法也叫做鸭式辨型——像鸭子一样走路、游泳和嘎嘎叫的家禽就是鸭子！</h3>
+</body>
+</html>
