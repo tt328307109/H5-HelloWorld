@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>DOM</title>
+<script type="text/javascript">
+    var getByID = function () {
+        var nameValue = document.getElementById("name").innerHTML;
+        var introduceValue = document.getElementById("introduce").value;
+        alert("nameValue=" + nameValue + " , introduceValue=" + introduceValue);
+    }
+
+    var getBySelector = function () {
+        var nameValue = document.querySelector("#name").innerHTML;
+        var introduceValue = document.querySelector("#introduce").value;
+        alert("nameValue=" + nameValue + " , introduceValue=" + introduceValue);
+    }
+
+    var getByNode = function () {
+        var currentNode = document.getElementById("java");
+        var previousNode = currentNode.previousSibling.previousSibling;
+        var previousNodeVaule = previousNode.innerHTML;
+        var nextNode = currentNode.nextSibling.nextSibling;
+        var nextNodeVaule = nextNode.innerHTML;
+        alert("previousNodeVaule=" + previousNodeVaule + " , nextNodeVaule=" + nextNodeVaule);
+    }
+
+</script>
+</head>
+<body>
+<p id="name">谷哥的小弟</p>
+<textarea id="introduce" cols="20" rows="3">坚持原创，热衷分享</textarea>
+<br>
+<br>
+<input type="button" value="依据ID访问标签" onclick="getByID();">
+<br>
+<br>
+<input type="button" value="依据选择器访问标签" onclick="getBySelector();">
+<br>
+<br>
+<ol>
+    <li>Android</li>
+    <li id="java">Java</li>
+    <li>Python</li>
+</ol>
+<input type="button" value="依据节点关系访问标签" onclick="getByNode();">
+<br>
+<br>
+
+
+<h3>首先是界面方面需要学习的点：</h3>
+<p>1.textarea是给定一个编辑器(类似edittext)cols是每行的字符数，rows表示行高(这里只留3行的高度，多余的部分会出现滑动条)。textarea会有一点样式</p>
+<p>2.input标签，类型指定的type=button。value为button上显示的文字。onclick是点击事件(该事件定义到js中你那个的)</p>
+
+<h3>然后我们需要学习js中的点</h3>
+<p>1.先是找到对应的节点(即为访问标签)<b>标签的访问有3中方式</b><br>
+    <b>1.依据id访问标签</b><br>
+    <b>2.依据选择器访问标签</b><br>
+    <b>3.依据节点之间的关系访问标签</b><br>
+</p>
+<p>1.根据id找到节点var name = document.getElementsById("name")这样就可以了</p>
+<p>2.根据选择器找到节点var name = document.querySelector("#name")这样就可以了</p>
+<p>3.根据关系找到节点，即找到他的父子节点或兄弟节点之后，再通过关系来找它(比如20、22行)</p>
+<p>4.获得标签具体的value值(p标签、li标签、.innerHTML方法)-(textarea标签用.value方法)</p>
+<p>5.获得某一节点后.previousSibling表示它的上一个节点，nextSibling表示它的下一个节点</p>
+<p>6.在ol标签里边，每一个li的上下之间隔了一个换行符，所以上面的例子.previousSibling.previousSibling写了2次</p>
+<h2>下面讲修改标签</h2>
+
+<script type="text/javascript">
+    var updateValue=function(){
+        var javaNode=document.getElementById("java2");
+        javaNode.innerHTML="J2EE";
+        var introduceNode=document.getElementById("introduce2");
+        introduceNode.value="积累技术，沉淀生活";
+    }
+</script>
+<ol>
+    <li>Android</li>
+    <li id="java2">Java</li>
+    <li>Python</li>
+</ol>
+<textarea id="introduce2" cols="20" rows="3">坚持原创，热衷分享</textarea>
+<br>
+<br>
+<input type="button" value="修改标签的内容" onclick="updateValue();">
+<p>上面还是比较容易理解的吧，找到标签，然后改值的同时界面就修改了</p>
+
+<h2>下面讲添加标签</h2>
+<p>主要有以下3个方法</p>
+<p>1.appenChild( ) 将节点添加成父节点的最后一个子节点</p>
+<p>2.insertBefore( ) 在某个节点之前插入新的节点</p>
+<p>3.replaceChild( ) 将老节点替换成新节点</p>
+<p>下面是一个insert方式的例子</p>
+<script type="text/javascript">
+    var addNode=function(){
+        var courseNode=document.getElementById("course");
+        var osNode=document.createElement("li");
+        osNode.innerHTML="操作系统";
+        courseNode.insertBefore(osNode,courseNode.firstChild);
+    }
+</script>
+
+<ol id="course">
+    <li>数据结构</li>
+    <li>计算机网络</li>
+    <li>计算机组成原理</li>
+</ol>
+<input type="button" value="新增标签" onclick="addNode();">
+<h3>上面例子需要注意的点</h3>
+<p>1.创建一个标签的方法是createElement再加上("li")标签的类型</p>
+<p>2.li的赋值方法是osNode.innerHTML="操作系统";</p>
+<p>3.insertBefore方法2个参数，1为需要增加的节点，2为增加的位置</p>
+<p>4.在这个例子中appenChild和insertBefore和replaceChild是针对父节点的</p>
+
+<h2>下面讲删除标签</h2>
+<script type="text/javascript">
+    var deleteNode=function(){
+        var netNode=document.getElementById("net2");
+        var courseNode=document.getElementById("course2");
+        courseNode.removeChild(netNode);
+    }
+</script>
+
+<ol id="course2">
+    <li>数据结构</li>
+    <li id="net2">计算机网络</li>
+    <li>计算机组成原理</li>
+</ol>
+<input type="button" value="删除标签" onclick="deleteNode();">
+
+<p>思路：找到节点-然后父节点删除它。<br>需要注意的点。<br>1.父节点调用删除方法<br>2.调用removeChild等方法都可以<br>3.你调用的同时界面也删除了</p>
+</body>
+</html>
